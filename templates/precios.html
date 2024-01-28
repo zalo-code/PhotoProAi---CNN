@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios - PhotoProAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        /* Estilos para los cuadrados de precios */
+        body, html {
+        height: 100%;
+        margin: 0;
+        font-family: fantasy;
+        background-color: black; /* Fondo negro para todo el cuerpo */
+    }
+    .bg-image {
+        background-image: url('../static/img1.png');
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        display: flex; /* Para centrar el contenido del header */
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+    .navbar {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 50px;
+        background-color: black; /* Fondo transparente para la barra de navegación */
+    }
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+    .logo-container img {
+        height: 50px; /* Ajuste según el tamaño de su logotipo */
+    }
+    .logo-container span {
+        color: white;
+        font-size: 24px; /* Tamaño del texto para PhotoProAI */
+        margin-left: 10px; /* Espacio entre el logotipo y el texto */
+    }
+    .navbar-right {
+        display: flex;
+        align-items: center;
+    }
+    .navbar a {
+        text-decoration: none;
+        color: white;
+        padding: 8px 16px;
+        text-transform: uppercase;
+        font-size: 14px;
+        display: flex; /* Centrar el contenido de los enlaces */
+        align-items: center;
+    }
+    .navbar a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+    }
+        .pricing-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .pricing-box {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .pricing-box h2 {
+            font-size: 2em;
+        }
+
+        .pricing-description {
+            margin-top: 20px;
+        }
+
+        /* Estilo para los botones de Contratar */
+        .contract-button {
+        background-color: #6A5ACD; /* Color lila */
+        color: white; /* Texto blanco */
+        font-size: 16px; /* Tamaño de fuente */
+        padding: 10px 20px; /* Espacio interior */
+        border: none; /* Sin borde */
+        border-radius: 8px; /* Bordes redondeados */
+        cursor: pointer; /* Cursor en forma de mano al pasar el ratón */
+        margin-top: 10px; /* Espacio superior */
+    }
+
+    .contract-button:hover {
+        background-color: #5a4bad; /* Un lila más oscuro al pasar el ratón */
+    }
+
+    .credit-counter-container {
+    background-color: rgba(211, 211, 211, 0.5); /* Fondo grisáceo semi-transparente */
+    padding: 5px 10px; /* Espacio interior reducido */
+    border-radius: 15px; /* Bordes redondeados */
+    display: inline-block; /* Hacer que el contenedor se ajuste al contenido */
+    margin: 10px; /* Margen exterior */
+}
+
+#creditCounter {
+    margin-left: 5px; /* Espacio entre 'Créditos:' y el contador */
+    font-weight: bold; /* Opcional: Hace que el número de créditos sea más destacado */
+}
+    </style>
+</head>
+<body>
+    <div class="bg-image">
+        <div class="navbar">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="../static/img2.png" alt="Logo" height="50">
+                </a>
+                <span>PhotoProAI</span>
+                <div class="credit-counter-container">
+                    <span>Créditos:</span>
+                    <span id="creditCounter">200</span>
+                </div>
+            </div>
+            <div class="navbar-right">
+                <a href="/">Inicio</a>
+                <a href="/prueba">Prueba gratuita</a>
+                <a href="/precios">Precios</a>
+                <a href="#">Registrarse</a>
+                <a href="#">Acerca de nosotros</a>
+            </div>
+        </div>
+
+    <!-- Sección de precios -->
+    <div class="container">
+        <h1 class="text-center mt-5">Precios</h1>
+        <div class="pricing-container">
+            <!-- Cuadro de precios 1 -->
+            <div class="pricing-box">
+                <h2>Prueba gratuita</h2>
+                <div class="pricing-description">
+                    <!-- Aquí puedes poner tus descripciones -->
+                    <p>Aqui</p>
+                    <p>pondriamos</p>
+                    <p>las descripciones</p>
+                    <p>de cada plan</p>
+                </div>
+                <button class="contract-button">Contratar</button>
+            </div>
+            <!-- Cuadro de precios 2 -->
+            <div class="pricing-box">
+                <h2>30 €</h2>
+                <div class="pricing-description">
+                    <!-- Aquí puedes poner tus descripciones -->
+                    <p>Aqui</p>
+                    <p>pondriamos</p>
+                    <p>las descripciones</p>
+                    <p>de cada plan</p>
+                </div>
+                <button class="contract-button">Contratar</button>
+            </div>
+            <!-- Cuadro de precios 3 -->
+            <div class="pricing-box">
+                <h2>100 €</h2>
+                <div class="pricing-description">
+                    <!-- Aquí puedes poner tus descripciones -->
+                    <p>Aqui</p>
+                    <p>pondriamos</p>
+                    <p>las descripciones</p>
+                    <p>de cada plan</p>
+                </div>
+                <button class="contract-button">Contratar</button>
+            </div>
+        </div>
+        <div class="pricing-box">
+            <h2>Descarga de aplicación</h2>
+            <div class="pricing-description">
+                <!-- Aquí puedes poner tus descripciones -->
+                <p>Aqui</p>
+                <p>pondriamos</p>
+                <p>las descripciones</p>
+                <p>de cada plan</p>
+                <p>Consultar con administradores</p>
+            </div>
+            <button class="contract-button">Contratar</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

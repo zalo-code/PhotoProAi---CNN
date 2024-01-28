@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: grey; /* Cambiar a gris oscuro (#222) */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: white; /* Cambiar el color del texto a blanco */
+}
+/* Estilos para la cabecera */
+
+.container {
+    background-color: transparent; /* Cambiar a fondo transparente */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Estilo para el carrusel y las imágenes */
+.carousel {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-inner {
+    text-align: center;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-item img {
+    max-width: 50%;
+    max-height: 80vh;
+    margin: 0 auto; /* Centrar horizontalmente las imágenes */
+}
+
+.caption {
+    color: white; /* Color de texto blanco (puedes ajustarlo según tus preferencias) */
+    margin-top: 10px; /* Espacio superior para separar el texto de la imagen */
+    font-size: 16px; /* Tamaño de fuente (ajusta según tus preferencias) */
+}
+
+#uploadButton {
+    background-color: #6A5ACD; /* Color de fondo lila */
+    color: white; /* Color de texto blanco */
+    font-size: 24px; /* Tamaño de fuente */
+    padding: 20px 40px; /* Espacio interior para hacerlo más grande */
+    border-radius: 10px; /* Bordes redondeados */
+    display: block; /* Para centrarlo en el centro de la página */
+    margin: 20px auto; /* Margen automático para centrar horizontalmente */
+}
+
+/* Estilos para el botón de Elegir Archivos */
+#imageInputContainer {
+    position: absolute;
+    top: 100px; /* Ajusta la distancia desde la parte superior según tus preferencias */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#imageInput {
+    display: block;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: #6A5ACD;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+#downloadButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: #6A5ACD;
+    color: aliceblue;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.credit-counter-container {
+    background-color: rgba(211, 211, 211, 0.5); /* Fondo grisáceo semi-transparente */
+    padding: 5px 10px; /* Espacio interior reducido */
+    border-radius: 15px; /* Bordes redondeados */
+    display: inline-block; /* Hacer que el contenedor se ajuste al contenido */
+    margin: 10px; /* Margen exterior */
+}
+
+#creditCounter {
+    margin-left: 5px; /* Espacio entre 'Créditos:' y el contador */
+    font-weight: bold; /* Opcional: Hace que el número de créditos sea más destacado */
+}
+
+
+
+
+
+
+
+
+
+
+
+

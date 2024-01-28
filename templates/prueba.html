@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificador de Imágenes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<style>
+     body, html {
+        height: 100%;
+        margin: 0;
+        font-family: fantasy;
+        background-color: black; /* Fondo negro para todo el cuerpo */
+    }
+    .bg-image {
+        background-image: url('../static/img1.png');
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        display: flex; /* Para centrar el contenido del header */
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+    .navbar {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 50px;
+        background-color: black; /* Fondo transparente para la barra de navegación */
+    }
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+    .logo-container img {
+        height: 50px; /* Ajuste según el tamaño de su logotipo */
+    }
+    .logo-container span {
+        color: white;
+        font-size: 24px; /* Tamaño del texto para PhotoProAI */
+        margin-left: 10px; /* Espacio entre el logotipo y el texto */
+    }
+    .navbar-right {
+        display: flex;
+        align-items: center;
+    }
+    .navbar a {
+        text-decoration: none;
+        color: white;
+        padding: 8px 16px;
+        text-transform: uppercase;
+        font-size: 14px;
+        display: flex; /* Centrar el contenido de los enlaces */
+        align-items: center;
+    }
+    .navbar a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+    }
+</style>
+<body>
+
+    <div class="bg-image">
+        <div class="navbar">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="../static/img2.png" alt="Logo" height="50">
+                </a>
+                <span>PhotoProAI</span>
+                <div class="credit-counter-container">
+                    <span>Créditos:</span>
+                    <span id="creditCounter">20000000</span>
+                </div>
+            </div>
+            <div class="navbar-right">
+                <a href="/">Inicio</a>
+                <a href="/prueba">Prueba gratuita</a>
+                <a href="/precios">Precios</a>
+                <a href="#">Registrarse</a>
+                <a href="#">Acerca de nosotros</a>
+            </div>
+        </div>
+    <!-- Resto de tu contenido -->
+    <div class="container" style="margin-top: 160px;">
+        <div id="imageInputContainer">
+            <input type="file" id="imageInput" multiple accept="image/*">
+        </div>
+        
+
+        <!-- Carrusel con botones de navegación -->
+        <div id="carouselContainer" class="carousel slide" data-ride="carousel">
+            <!-- Slides -->
+            <div class="carousel-inner" role="listbox" id="carouselImages">
+                <!-- Las imágenes del carrusel se añadirán aquí mediante JavaScript -->
+            </div>
+            <!-- Controles de navegación -->
+            <a class="carousel-control-prev" href="#carouselContainer" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselContainer" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+            </a>
+            
+        </div>
+
+        <button id="uploadButton">Subir y Clasificar</button>
+
+        <button id="downloadButton">Descargar Imágenes</button>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

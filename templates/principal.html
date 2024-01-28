@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhotoProAI</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+        /* Estilos para los cuadrados de precios */
+        body, html {
+        height: 100%;
+        margin: 0;
+        font-family: fantasy;
+        background-color: black; /* Fondo negro para todo el cuerpo */
+    }
+    .bg-image {
+        background-image: url('../static/img1.png');
+        height: 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        display: flex; /* Para centrar el contenido del header */
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+    .navbar {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 50px;
+        background-color: black; /* Fondo transparente para la barra de navegación */
+    }
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+    .logo-container img {
+        height: 50px; /* Ajuste según el tamaño de su logotipo */
+    }
+    .logo-container span {
+        color: white;
+        font-size: 24px; /* Tamaño del texto para PhotoProAI */
+        margin-left: 10px; /* Espacio entre el logotipo y el texto */
+    }
+    .navbar-right {
+        display: flex;
+        align-items: center;
+    }
+    .navbar a {
+        text-decoration: none;
+        color: white;
+        padding: 8px 16px;
+        text-transform: uppercase;
+        font-size: 14px;
+        display: flex; /* Centrar el contenido de los enlaces */
+        align-items: center;
+    }
+    .navbar a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+    }
+    .header-content {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+    .header-content h1 {
+        font-size: 50px;
+        margin-bottom: 16px;
+    }
+    .header-content p {
+        margin-bottom: 32px;
+    }
+    .header-content button {
+        font-size: 20px;
+        padding: 10px 30px;
+        background-color: #a777e3;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .header-content button:hover {
+        background-color: #7e57c2;
+    }
+
+    .credit-counter-container {
+    background-color: rgba(211, 211, 211, 0.5); /* Fondo grisáceo semi-transparente */
+    padding: 5px 10px; /* Espacio interior reducido */
+    border-radius: 15px; /* Bordes redondeados */
+    display: inline-block; /* Hacer que el contenedor se ajuste al contenido */
+    margin: 10px; /* Margen exterior */
+}
+
+#creditCounter {
+    margin-left: 5px; /* Espacio entre 'Créditos:' y el contador */
+    font-weight: bold; /* Opcional: Hace que el número de créditos sea más destacado */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px; /* Ajusta el espaciado como lo necesites */
+    background-color: #000000; /* Color de fondo del footer, ajusta como prefieras */
+    color: white; /* Color del texto */
+}
+
+.footer-container > div {
+    flex-basis: calc(33.333% - 20px); /* Divide el footer en tres partes iguales con algo de espacio entre ellas */
+}
+
+.footer-left img {
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+}
+
+.carousel-control-prev, .carousel-control-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* Aumentamos el z-index para que las flechas estén por encima del carrusel */
+}
+
+.carousel-control-prev {
+    left: 10px;
+}
+
+.carousel-control-next {
+    right: 10px;
+}
+
+/* Centrar el texto del centro del footer */
+.footer-center {
+    text-align: center; /* Asegura el centrado del texto */ /* Asegura que el texto esté por debajo de las flechas */
+    margin-right: 400px;
+    font-size: xx-large;
+}
+
+/* Ajusta el estilo del contenedor del carrusel para evitar que las imágenes se superpongan con las flechas */
+#footerCarousel {
+    position: relative;
+    display: flex; /* Utilizamos flexbox para alinear las flechas con las imágenes */
+    justify-content: center; /* Centra las imágenes en el espacio disponible */
+    align-items: center; /* Alinea verticalmente las imágenes */
+    height: 100px; /* Ajusta la altura según sea necesario para tus imágenes */
+}
+
+/* Estilo para las imágenes dentro del carrusel para evitar que se superpongan con las flechas */
+#footerCarousel img {
+    max-width: 80%; /* Reduce el ancho máximo de las imágenes si es necesario */
+    margin: 0 20px; /* Agrega márgenes a los lados de las imágenes */
+}
+</style>
+</head>
+<body>
+
+<div class="bg-image">
+    <div class="navbar">
+        <div class="logo-container">
+            <a href="/">
+                <img src="../static/img2.png" alt="Logo" height="50">
+            </a>
+            <span>PhotoProAI</span>
+            <div class="credit-counter-container">
+                <span>Créditos:</span>
+                <span id="creditCounter">200</span>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <a href="/">Inicio</a>
+            <a href="/prueba">Prueba gratuita</a>
+            <a href="/precios">Precios</a>
+            <a href="#">Registrarse</a>
+            <a href="#">Acerca de nosotros</a>
+        </div>
+    </div>
+    <div class="header-content">
+        <h1>Bienvenido a la nueva era de la clasificación de imagenes</h1>
+        <p>Soluciones con IA</p>
+        <button><a href="/prueba" style="color: black;">Prueba gratuita</a></button>
+    </div>
+</div>
+<footer class="footer-container">
+    <div class="footer-left">
+        <img src="../static/4geeks.png" alt="Logo" height="50"> <!-- Ajusta la ruta y el tamaño como sea necesario -->
+        <p>Gonzalo Cagigao</p>
+        <p>Horacio Siciliano</p>
+        <p>2023 - 2024</p>
+    </div>
+    <div class="footer-center">
+        <p>El primer clasificador de imágenes para fotógrafos profesionales con inteligencia artificial.</p>
+    </div>
+    <footer class="footer-container">
+        <!-- ...otros elementos del footer... -->
+        <div class="footer-right" id="footerCarousel">
+            <!-- Flechas de navegación -->
+            <span class="carousel-control-prev">&#10094;</span>
+            <span class="carousel-control-next">&#10095;</span>
+        </div>
+    </footer>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const footerCarouselContainer = document.getElementById('footerCarousel');
+        const prevButton = document.createElement('span');
+        const nextButton = document.createElement('span');
+        prevButton.classList.add('carousel-control-prev');
+        nextButton.classList.add('carousel-control-next');
+        prevButton.innerHTML = '&#10094;';
+        nextButton.innerHTML = '&#10095;';
+        footerCarouselContainer.appendChild(prevButton);
+        footerCarouselContainer.appendChild(nextButton);
+    
+        const carouselImages = [
+            '/static/tensor.png',
+            '/static/python.png',
+            '/static/numpy.png',
+            '/static/matplot.png',
+            '/static/keras.png',
+            '/static/open.png',
+            '/static/pandas.png',
+            '/static/sklearn.png'
+            // ...más imágenes si es necesario
+        ];
+    
+        let currentIndex = 0;
+        const imageElements = carouselImages.map((imageSrc, index) => {
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.style.maxWidth = '100px';
+            img.style.display = index === 0 ? 'block' : 'none';
+            footerCarouselContainer.appendChild(img);
+            return img;
+        });
+    
+        function rotateCarousel() {
+            imageElements[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex + 1) % imageElements.length;
+            imageElements[currentIndex].style.display = 'block';
+        }
+    
+        // Cambiar imagen cada 3 segundos
+        setInterval(rotateCarousel, 3000);
+    
+        // Navegación manual con las flechas
+        prevButton.onclick = function() {
+            imageElements[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex - 1 + imageElements.length) % imageElements.length;
+            imageElements[currentIndex].style.display = 'block';
+        };
+        nextButton.onclick = function() {
+            rotateCarousel();
+        };
+    });
+    </script>
+</body>
+</html>
